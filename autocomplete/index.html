@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>autocomplete</title>
+    <link rel="stylesheet" href="autocomplete.css"></link>
+    <link rel="stylesheet" href="index.css"></link>
+</head>
+<body>
+    <div class="demoSection">
+        <h3>AutoComplete Plugin Demo</h3>
+        <div class="innerSection">
+            <h4>Example 1 with linear search</h4>
+            <input class="autocomplete" type="text">
+        </div>
+        <div class="innerSection">
+            <h4>Example 2 with a tree built with initial character.</h4>
+            <input id="myac" type="text">
+        </div>
+        <div class="innerSection">
+            <p>This demo shows you an auto-complete widget with the tag feature.</p>
+            <p>The sample dictionary file is "password.json" with about 8000 entries. </p>
+            <p>The time spent for each searching operation will be shown for the reference.</p>
+            <p>In addition, Example 2 is faster than Example 1 generally.</p>
+            <br>
+            <p>Note: please run this demo in a static web server ( i.e. python -m SimpleHTTPServer ) due to the cross-site protection,<br>or go to the static site: <a href="http://weilonge.bitbucket.org/autocomplete">http://weilonge.bitbucket.org/autocomplete</a></p>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="dictionary_simple.js"></script>
+    <script src="dictionary_prefix.js"></script>
+    <script src="autocomplete.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
