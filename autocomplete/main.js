@@ -1,7 +1,7 @@
 /*jslint node: true */
 "use strict";
 
-Utils.loadJSON('password.json',
+Utils.loadJSON('tzdata.json',
     function (data) {
         var dataSet = data.data;
 
