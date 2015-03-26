@@ -17,7 +17,7 @@
     }
   </style>
 </head>
-<body>
+<body id="oooo">
   <button id="resizeWindow">Resize Window</button>
   <div id="iframeContainer">
     <iframe id="iframeInt" src="./index_inner.html" width="100px" height="150px" frameborder="0" scrolling="no"></iframe>
@@ -28,10 +28,16 @@
 var state = false;
 
 function resizeChild() {
-  console.log('resizeChild BEGIN');
+  log('resizeChild BEGIN');
   document.getElementById('iframeInt').className = state ? "smaller" : "bigger";
   state = !state;
-  console.log('resizeChild ENDDD');
+  log('resizeChild ENDDD');
+}
+
+function log(str){
+  var node = document.createElement("div");                 // Create a <li> node
+  node.innerHTML = str;
+  document.getElementById('oooo').appendChild(node);
 }
 
 document.getElementById('resizeWindow').addEventListener("click", resizeChild);

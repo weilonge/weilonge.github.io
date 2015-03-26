@@ -21,11 +21,13 @@
 
 <script>
 window.addEventListener("resize", function () {
-  console.log('innerHtml RESIZE!!!!!');
+  log('innerHtml RESIZE!!!!!');
 }, false);
 
+var log = window.parent.log;
+
 document.getElementById('resizeMe').addEventListener("click", function () {
-  console.log('A BEGIN');
+  log('A BEGIN');
 
   window.parent.resizeChild();
 
@@ -37,7 +39,7 @@ document.getElementById('resizeMe').addEventListener("click", function () {
   //var viewWidth = view.getBoundingClientRect().width;
   //var viewFont = computedStyle.fontFamily;
 
-  console.log('A ENDDD');
+  log('A ENDDD');
 });
 
 </script>
