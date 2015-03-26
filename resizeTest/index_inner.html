@@ -20,6 +20,8 @@
   <div id="innerHtml">Inner HTML</div>
 
 <script>
+var state = false;
+
 window.addEventListener("resize", function () {
   log('innerHtml RESIZE!!!!!');
 }, false);
@@ -36,8 +38,12 @@ document.getElementById('resizeMe').addEventListener("click", function () {
   //console.log('WIDTH: ' + window.innerWidth);
   var view = document.getElementById('innerHtml');
   var computedStyle = window.getComputedStyle(view);
-  //var viewWidth = view.getBoundingClientRect().width;
-  //var viewFont = computedStyle.fontFamily;
+
+  if(state){
+    var viewWidth = view.getBoundingClientRect().width;
+    var viewFont = computedStyle.fontFamily;
+  }
+  state = !state;
 
   log('A ENDDD');
 });
