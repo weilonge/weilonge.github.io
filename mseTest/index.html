@@ -98,27 +98,27 @@ section {
 </style>
 </head>
 <body>
-
+<!--
 <details>
   <summary>What is this?</summary>
   <div>
-    <p>This demo splits a <a href="Chrome_ImF.webm">.webm video</a> into
+    <p>This demo splits a <a href="Chrome_ImF.mp4">.mp4 video</a> into
     <span data-num-chunks></span> chunks using the File APIs. The entire movie
-    is then 'streamed' to a <code>&lt;video&gt;</code> element by appending each 
+    is then 'streamed' to a <code>&lt;video&gt;</code> element by appending each
     chunk using the
     <a href="http://dvcs.w3.org/hg/html-media/raw-file/tip/media-source/media-source.html" target="_blank">MediaSource API</a>.</p>
     <p><b>Support:</b> Chrome Dev Channel 17+ and the <code>--enable-media-source</code> flag set. The feature is enabled
       by default in Chrome 23, which also updated its implementation to the new version of the API.</p>
   </div>
 </details>
-
-<h3>Appending .webm video chunks using the Media Source API</h3>
+-->
+<h3>Appending .mp4 video chunks using the Media Source API</h3>
 
 <section>
   <video controls autoplay width="320" height="240"></video>
   <pre id="log"></pre>
 </section>
-
+<!--
 <pre><code>
 var ms = new MediaSource();
 
@@ -127,14 +127,14 @@ video.src = window.URL.createObjectURL(ms);
 
 ms.addEventListener('sourceopen', function(e) {
   ...
-  var sourceBuffer = ms.addSourceBuffer('video/webm; codecs="vorbis,vp8"');
+  var sourceBuffer = ms.addSourceBuffer('video/mp4; codecs="vorbis,vp8"');
   sourceBuffer.appendBuffer(oneVideoWebMChunk);
   ....
 }, false);
 </code></pre>
-
+-->
 <script>
-var FILE = 'test.webm';
+var FILE = 'test.mp4';
 var NUM_CHUNKS = 5;
 var video = document.querySelector('video');
 
@@ -145,17 +145,17 @@ if (!!!window.MediaSource) {
 
 var mediaSource = new MediaSource();
 
-document.querySelector('[data-num-chunks]').textContent = NUM_CHUNKS;
+//document.querySelector('[data-num-chunks]').textContent = NUM_CHUNKS;
 
 video.src = window.URL.createObjectURL(mediaSource);
 
 function callback(e) {
-  var sourceBuffer = mediaSource.addSourceBuffer('video/webm; codecs="vorbis,vp8"');
+  var sourceBuffer = mediaSource.addSourceBuffer('video/mp4');
 
   logger.log('mediaSource readyState: ' + this.readyState);
 
   GET(FILE, function(uInt8Array) {
-    var file = new Blob([uInt8Array], {type: 'video/webm'});
+    var file = new Blob([uInt8Array], {type: 'video/mp4'});
     var chunkSize = Math.ceil(file.size / NUM_CHUNKS);
 
     logger.log('num chunks:' + NUM_CHUNKS);
@@ -192,9 +192,8 @@ function callback(e) {
 }
 
 mediaSource.addEventListener('sourceopen', callback, false);
-mediaSource.addEventListener('webkitsourceopen', callback, false);
 
-mediaSource.addEventListener('webkitsourceended', function(e) {
+mediaSource.addEventListener('sourceended', function(e) {
   logger.log('mediaSource readyState: ' + this.readyState);
 }, false);
 
@@ -228,18 +227,8 @@ Logger.prototype.clear = function() {
   this.el.textContent = '';
 };
 
-var logger = new Logger('log');
-</script>
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-22014378-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+//var logger = new Logger('log');
+var logger = console;
 </script>
 <!--[if IE]>
 <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
