@@ -151,6 +151,13 @@ video.src = window.URL.createObjectURL(mediaSource);
 
 function callback(e) {
   var sourceBuffer = mediaSource.addSourceBuffer('video/mp4');
+  function endSteam() {
+    if(!sourceBuffer.updating){
+      mediaSource.endOfStream();
+      sourceBuffer.removeEventListener("updateend", endSteam);
+    }
+  }
+  sourceBuffer.addEventListener("updateend", endSteam);
 
   logger.log('mediaSource readyState: ' + this.readyState);
 
@@ -174,7 +181,8 @@ function callback(e) {
         sourceBuffer.appendBuffer(new Uint8Array(e.target.result));
         logger.log('appending chunk:' + i);
         if (i == NUM_CHUNKS - 1) {
-          mediaSource.endOfStream();
+          // Wait for sourceBuffer.updating === false
+          console.log(sourceBuffer.updating);
         } else {
           if (video.paused) {
             video.play(); // Start playing after 1st chunk is appended.
