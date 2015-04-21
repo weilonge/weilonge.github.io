@@ -11,24 +11,16 @@ VideoPlayer.init(videoDom,'video/mp4', function (){
   console.log('mediaSource readyState: ' + this.readyState);
 
   GET(FILE, function(uInt8Array) {
-    var file = new Blob([uInt8Array], {type: 'video/mp4'});
-    var chunkSize = Math.ceil(file.size / NUM_CHUNKS);
+    var chunkSize = Math.ceil(uInt8Array.byteLength / NUM_CHUNKS);
 
     console.log('num chunks:' + NUM_CHUNKS);
-    console.log('chunkSize:' + chunkSize + ', totalSize:' + file.size);
+    console.log('chunkSize:' + chunkSize + ', totalSize:' + uInt8Array.byteLength);
 
-    // Slice the video into NUM_CHUNKS and append each to the media element.
     var i = 0;
 
     (function readChunk_(i) {
-      var reader = new FileReader();
-
-      // Reads aren't guaranteed to finish in the same order they're started in,
-      // so we need to read + append the next chunk after the previous reader
-      // is done (onload is fired).
-      reader.onload = function(e) {
-        sourceBuffer.appendBuffer(new Uint8Array(e.target.result));
-        console.log('appending chunk:' + i);
+      function updateHandler(){
+        sourceBuffer.removeEventListener('update', updateHandler);
         if (i == NUM_CHUNKS - 1) {
           // Wait for sourceBuffer.updating === false
           console.log(sourceBuffer.updating);
@@ -38,12 +30,13 @@ VideoPlayer.init(videoDom,'video/mp4', function (){
           }
           readChunk_(++i);
         }
-      };
+      }
+
+      sourceBuffer.addEventListener('update', updateHandler);
 
       var startByte = chunkSize * i;
-      var chunk = file.slice(startByte, startByte + chunkSize);
-
-      reader.readAsArrayBuffer(chunk);
+      var chunk = uInt8Array.subarray(startByte, startByte + chunkSize);
+      sourceBuffer.appendBuffer(chunk);
     })(i);  // Start the recursive call by self calling.
   });
 
