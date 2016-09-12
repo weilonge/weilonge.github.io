@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="csscolorparser.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      background-color: #DADADA;
+      font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    h4 {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .container > div {
+      order: 1;
+    }
+    .container > div:hover {
+      background-color: orange;
+    }
+    .container > div > div.colorBox {
+      width: 80%;
+      margin: 0 10%;
+      height: 20px;
+      border-style: solid;
+      border-width: 5px;
+      border-right-color: #ffffff;
+      border-top-color: #ffffff;
+      border-left-color: #000000;
+      border-bottom-color: #000000;
+      margin: 10px;
+      text-shadow: 0px 0px 30px #898989, 0 0 1em white, 0 0 0.2em white;
+      padding: 10px;
+      min-width: 250px;
+    }
+    .colorBox.transparentDetect::after {
+      content: "[*]";
+    }
+  </style>
+</head>
+<body>
+  <h1>Color Palette</h1>
+  <h4>[*] style with alpha color, transparent or opacity.</h4>
+  <div class="container"></div>
+
+  <script>
+    let COLOR_LIST = [
+      "activeborder",
+      "activecaption",
+      "appworkspace",
+      "background",
+      "buttonface",
+      "buttonhighlight",
+      "buttonshadow",
+      "buttontext",
+      "captiontext",
+      "graytext",
+      "highlight",
+      "highlighttext",
+      "inactiveborder",
+      "inactivecaption",
+      "inactivecaptiontext",
+      "infobackground",
+      "infotext",
+      "menu",
+      "menutext",
+      "scrollbar",
+      "threeddarkshadow",
+      "threedface",
+      "threedhighlight",
+      "threedlightshadow",
+      "threedshadow",
+      "window",
+      "windowframe",
+      "windowtext",
+      "-moz-buttondefault",
+      "-moz-field",
+      "-moz-fieldtext",
+      "-moz-dialog",
+      "-moz-dialogtext",
+      "-moz-dragtargetzone",
+      "-moz-cellhighlight",
+      "-moz-cellhighlighttext",
+      "-moz-html-cellhighlight",
+      "-moz-html-cellhighlighttext",
+      "-moz-buttonhoverface",
+      "-moz-buttonhovertext",
+      "-moz-menuhover",
+      "-moz-menuhovertext",
+      "-moz-menubartext",
+      "-moz-menubarhovertext",
+      "-moz-oddtreerow",
+      "-moz-mac-chrome-active",
+      "-moz-mac-chrome-inactive",
+      "-moz-mac-focusring",
+      "-moz-mac-menuselect",
+      "-moz-mac-menushadow",
+      "-moz-mac-menutextdisable",
+      "-moz-mac-menutextselect",
+      "-moz-mac-disabledtoolbartext",
+      "-moz-mac-secondaryhighlight",
+      "-moz-win-mediatext",
+      "-moz-win-communicationstext",
+      "-moz-nativehyperlinktext",
+      "-moz-comboboxtext",
+      "-moz-combobox"
+    ];
+
+    // <div id="eColorID_activeborder">
+    //   <div style="background-color: activeborder" class="colorBox">activeborder</div>
+    // </div>
+    let container = document.querySelector("div.container");
+
+    COLOR_LIST.forEach(function (color) {
+      let colorBox = document.createElement("div");
+      colorBox.classList.add("colorBox");
+      colorBox.textContent = color;
+      colorBox.style.backgroundColor = color;
+
+      let eColor = document.createElement("div");
+      eColor.id = "eColorID_" + color;
+      eColor.appendChild(colorBox);
+      container.appendChild(eColor);
+    });
+
+    window.onload = function () {
+      function alphaColorDetect(node) {
+        let style = window.getComputedStyle(node);
+        let bgColor = parseCSSColor(style.backgroundColor);
+        let result = bgColor[3] < 1 || style.opacity < 1;
+        if (result) {
+          console.log(node);
+          console.log(style.backgroundColor);
+          console.log(bgColor);
+        }
+        return result;
+      }
+
+      let nodeList = document.querySelectorAll(".container > div > .colorBox");
+      nodeList.forEach(function (node) {
+        if (alphaColorDetect(node)) {
+          node.classList.add("transparentDetect");
+        }
+      });
+    };
+  </script>
+</body>
+</html>
