@@ -207,8 +207,17 @@ section:last-child {
 }
 
 @media all and (min-width: 602px) and (max-width: 800px) {
+  section {
+    padding: 10px 0 0;
+  }
+
   #headshot {
     display: none;
+  }
+
+  .sectionTitle, .sectionContent {
+    float: none;
+    width: 100%;
   }
 
   .keySkills {
@@ -219,6 +228,10 @@ section:last-child {
 }
 
 @media all and (max-width: 601px) {
+  section {
+    padding: 10px 0 0;
+  }
+
   #cv {
     width: 95%;
     margin: 10px auto;
@@ -242,7 +255,7 @@ section:last-child {
 
   .sectionTitle {
     margin-left: -2px;
-    font-size: 1.25em;
+    font-size: 1em;
   }
 
   .keySkills {
@@ -258,7 +271,7 @@ section:last-child {
   }
 
   section {
-    padding: 15px 0 0;
+    padding: 5px 0 0;
   }
 
   .mainArea {
