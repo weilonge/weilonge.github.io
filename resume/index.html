@@ -107,14 +107,39 @@
               </ul>
             </article>
             <article>
-              <h2>Firefox OS</h2>
+              <h2>Firefox OS <a target="_blank" href="https://github.com/mozilla-b2g/gaia">Gaia</a></h2>
               <p class="subDetails">Javascript/HTML/CSS</p>
               <ul>
-                <li>Partner support for bugs resolving of Dialer and SIM Card Toolkit(STK) app</li>
-                <li>A web app of BLE Drone remote controller - Demonstration in Moz All-hands 2015</li>
-                <li>Cloud Storage (unidisk) project - Talk in Moz All-hands 2015</li>
-                <li>Firefox Sync on TV - Bookmarks, History, and Tabs</li>
-                <li>Settings app on TV - key navigation</li>
+                <li>Web apps developement including Dialer, Firefox Sync, and Settings in Firefox OS
+                  <ul>
+                    <li>Partner support for bugs resolving of Dialer and SIM Card Toolkit(STK) app</li>
+                    <li>Firefox Sync on TV - Bookmarks, History, and Tabs</li>
+                    <li>Settings app on TV - key navigation</li>
+                  </ul>
+                </li>
+                <li>Cloud Storage (unidisk) project - Talk in Moz All-hands 2015
+                  <ul>
+                    <li>Porting <a target="_blank" href="https://github.com/weilonge/unidisk">unidisk</a> from NodeJS to Firefox OS. See <a href="#unidisk">more detail</a> below.</li>
+                  </ul>
+                </li>
+                <li>A web app of BLE Drone remote controller - Demonstration in Moz All-hands 2015
+                  <ul>
+                    <li>Rolling Spider <a target="_blank" href="https://github.com/fxos-bt-squad/RollingSpider">remote controller app</a> for FxOS</li>
+                  </ul>
+                </li>
+              </ul>
+            </article>
+            <article id="unidisk">
+              <h2>unidisk - Smart cache policy to bridge FUSE and Web Storage</h2>
+              <p class="subDetails">NodeJS/Linux/C/C++</p>
+              <ul>
+                <li><a target="_blank" href="https://goo.gl/TdDuiZ">JSDC 2015 Speaker</a> unidisk - Architecture of Web Storage filesystem</li>
+                <li>Refactor the new architecture in Nodejs: <a target="_blank" href="https://github.com/weilonge/unidisk">github.com/weilonge/unidisk</a></li>
+                <li>Manipulate the files in web storage (e.g., Dropbox) just like in your disk and play a 1080p video smoothly in realtime!</li>
+                <li>Connect the web storage and FUSE, so that the file manipulation would be easier!!!</li>
+                <li>Multi-thread module to improve the overall performance.</li>
+                <li>Library/service - fuse-bindings, Dropbox API, BaiduYun PCS.</li>
+                <li>The earlier version is implemented with pthread, curl, cJSON in C/C++. </li>
               </ul>
             </article>
             <article>
@@ -202,18 +227,6 @@
                     <li>This system has been used to over 5 POS projects and suffered stress testing for over one month with robust reliability.</li>
                   </ul>
                 </li>
-              </ul>
-            </article>
-            <article>
-              <h2>Smart cache policy to bridge FUSE and Web Storage</h2>
-              <p class="subDetails">Linux/C/C++/Nodejs</p>
-              <ul>
-                <li><a target="_blank" href="https://goo.gl/TdDuiZ">JSDC 2015 Speaker</a> unidisk - Architecture of Web Storage filesystem</li>
-                <li>Manipulate the files in web storage (e.g., Dropbox) just like in your disk and play a 1080p video smoothly in realtime!</li>
-                <li>Connect the web storage and FUSE, so that the file manipulation would be easier!!!</li>
-                <li>Multi-thread module to improve the overall performance.</li>
-                <li>Library/service - pthread, curl, cJSON, Dropbox API, BaiduYun PCS.</li>
-                <li>Refactor the new architecture in Nodejs: <a target="_blank" href="https://github.com/weilonge/unidisk">github.com/weilonge/unidisk</a></li>
               </ul>
             </article>
             <article>
