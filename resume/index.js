@@ -1,14 +1,24 @@
-
 let main = document.getElementById("main");
 let reference = document.getElementById("sideProjectSection");
-switch (window.location.hash) {
-  case "#linuxExperience": {
-    let child = document.getElementById("webSection");
-    main.insertBefore(child, reference);
-    break;
+
+function changeView(hash) {
+  let child
+  switch (window.location.hash) {
+    case "#linuxExperience": {
+      child = document.getElementById("webSection");
+      break;
+    }
+    case "#webExperience": {
+      child = document.getElementById("linuxSection");
+      break;
+    }
   }
-  case "#webExperience": {
-    break;
+  if (child) {
+    main.insertBefore(child, reference);
   }
 }
+
+changeView(window.location.hash);
+
+window.addEventListener("hashchange", changeView, false);
 
