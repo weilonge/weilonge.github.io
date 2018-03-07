@@ -192,6 +192,23 @@ section:last-child {
   margin-bottom: 3px;
 }
 
+.subDetails > span {
+  font-weight: 900;
+  font-style: normal;
+  font-size: 1.3em;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.subDetails > span::before {
+  content: "[";
+}
+
+.subDetails > span::after {
+  content: "]";
+}
+
 .keySkills {
   list-style-type: none;
   -moz-column-count:3;
