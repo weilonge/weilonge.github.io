@@ -1,6 +1,20 @@
+:root {
+    --fg-color: #CEB992;
+    --sub-fg-color: #EFCB68;
+    --bg-color: #302B27;
+    --link-color: #4B81AF;
+    --title-color: #73937E;
+}
 body {
+    font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Arial', 'sans-serif';
+    color: var(--fg-color);
+    font-weight: normal;
+    background: var(--bg-color);
     margin: 60px auto;
     width: 70%;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: var(--title-color);
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -8,13 +22,20 @@ nav ul, footer ul {
     list-style: none;
     font-weight: bold;
 }
+blockquote {
+    color: var(--sub-fg-color);
+    border-left: 3px solid #ffcc00;
+    margin: 0;
+    padding: 0 0 0 20px;
+    font-style: italic;
+}
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
 }
 a {
     text-decoration: none;
-    color: #999;
+    color: var(--link-color);
 }
 a:hover {
     text-decoration: underline;
@@ -26,7 +47,6 @@ h1 {
 p {
     font-size: 1.5em;
     line-height: 1.4em;
-    color: #333;
 }
 footer {
     border-top: 1px solid #d5d5d5;
