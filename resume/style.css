@@ -7,11 +7,28 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   vertical-align:baseline;
 }
 
+:root {
+  --primaryTextColor: #222222;
+  --secondaryTextColor: #cf8a05;
+  --annotationColor: #444444;
+  --pageBgColor: #181818;
+  --contentBgColor: #f3f3f3;
+  --headerBgColor: #ededed;
+  --borderColor: #dedede;
+  --linkColor: #3366cc;
+  --linkVisitedColor: #aa66cc;
+}
+
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
   display:block;
 }
 
-html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body {
+  background: var(--pageBgColor);
+  font-family: 'Lato', helvetica, arial, sans-serif;
+  font-size: 16px;
+  color: var(--primaryTextColor);
+}
 
 .clear {clear: both;}
 
@@ -19,7 +36,7 @@ p {
   font-size: 1em;
   line-height: 1.4em;
   margin-bottom: 10px;
-  color: #444;
+  color: var(--annotationColor);
 }
 
 b {
@@ -33,14 +50,14 @@ b {
 #cv {
   width: 90%;
   max-width: 800px;
-  background: #f3f3f3;
+  background: var(--contentBgColor);
   margin: 30px auto;
 }
 
 .mainDetails {
   padding: 25px 35px;
-  border-bottom: 2px solid #cf8a05;
-  background: #ededed;
+  border-bottom: 2px solid var(--secondaryTextColor);
+  background: var(--headerBgColor);
 }
 
 #name {
@@ -93,11 +110,11 @@ b {
 
 #contactDetails ul li {
   margin-bottom: 5px;
-  color: #444;
+  color: var(--annotationColor);
 }
 
 #contactDetails ul li a, a[href^=tel] {
-  color: #444;
+  color: var(--annotationColor);
   text-decoration: none;
   -webkit-transition: all .3s ease-in;
   -moz-transition: all .3s ease-in;
@@ -107,12 +124,12 @@ b {
 }
 
 #contactDetails ul li a:hover {
-  color: #cf8a05;
+  color: var(--secondaryTextColor);
 }
 
 
 section {
-  border-top: 2px solid #dedede;
+  border-top: 2px solid var(--borderColor);
   padding: 20px 0 0;
 }
 
@@ -125,8 +142,20 @@ section:last-child {
 }
 
 .sectionTitle {
+  user-select: none;
   float: left;
   width: 15%;
+}
+
+.sectionTitle.clickMe::after {
+  content: 'Click me to expand >';
+  position: relative;
+  top: -25px;
+  left: 130px;
+  color: var(--annotationColor);
+  display: inline-block;
+  width: 300px;
+  font-style: italic;
 }
 
 .sectionContent {
@@ -138,7 +167,7 @@ section:last-child {
   font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
   font-style: italic;
   font-size: 1.5em;
-  color: #cf8a05;
+  color: var(--secondaryTextColor);
 }
 
 .sectionContent h2 {
@@ -149,7 +178,7 @@ section:last-child {
 
 .sectionContent article {
   margin-bottom: 10px;
-  border-bottom: 2px solid #dedede;
+  border-bottom: 2px solid var(--borderColor);
 }
 
 .sectionContent article:last-child {
@@ -169,27 +198,20 @@ section:last-child {
 }
 
 .sectionContent a:link {
-  color: #3366cc;
+  color: var(--linkColor);
   text-decoration: none;
 }
 
 .sectionContent a:visited {
-  color: #aa66cc;
+  color: var(--linkVisitedColor);
   text-decoration: none;
-}
-
-.sectionContent a::before {
-  content: "[";
-}
-
-.sectionContent a::after {
-  content: "]";
 }
 
 .subDetails {
   font-size: 0.8em;
   font-style: italic;
   margin-bottom: 3px;
+  text-align: right;
 }
 
 .subDetails > span {
@@ -216,7 +238,7 @@ section:last-child {
   column-count:3;
   margin-bottom: 20px;
   font-size: 1em;
-  color: #444;
+  color: var(--annotationColor);
 }
 
 .keySkills ul li {
