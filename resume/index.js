@@ -36,3 +36,21 @@ window.addEventListener("hashchange", changeView, false);
     sectionTitle.classList.toggle('clickMe');
   });
 });
+
+function monthDiff(d1, d2) {
+  let months;
+  months = (d2.getFullYear() - d1.getFullYear()) * 12;
+  months -= d1.getMonth();
+  months += d2.getMonth();
+  return months <= 0 ? 0 : months;
+}
+
+function calculateCurrentWorkPeriod() {
+  const currentWorkPeriod = document.getElementById('currentWorkPeriod');
+  const mon = monthDiff(new Date(2019, 10, 1), new Date());
+  const m = mon % 12;
+  const y = Math.floor(mon / 12);
+  currentWorkPeriod.textContent = (y > 0 ? `${y}yr ` : '') + (m > 0 ? `${m}m+` : '');
+}
+
+calculateCurrentWorkPeriod();
