@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume | Senior Software Engineer</title>
+
+<style>
+  @font-face {
+    font-family: Inter;
+    src: local("Inter");
+    font-weight: 100 900;
+  }
+
+  :root {
+    --navy: #172b4d;
+    --blue: #2563eb;
+    --text: #344054;
+    --muted: #667085;
+    --line: #dce3ed;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  @page {
+    size: A4;
+    margin: 14mm 17mm;
+  }
+
+  body {
+    margin: 0;
+    color: var(--text);
+    font-family: Inter, Arial, sans-serif;
+    font-size: 9pt;
+    line-height: 1.42;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    position: relative;
+    min-height: 269mm;
+  }
+
+  .page + .page {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  header {
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 11px;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    color: var(--navy);
+    font-size: 25pt;
+    line-height: 1.1;
+    letter-spacing: -0.7px;
+    margin: 0 0 4px;
+  }
+
+  .headline {
+    color: var(--blue);
+    font-size: 11pt;
+    font-weight: 650;
+    margin-bottom: 8px;
+  }
+
+  .contact {
+    color: var(--muted);
+    font-size: 8pt;
+  }
+
+  h2 {
+    color: var(--navy);
+    font-size: 10.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 14px 0 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  h3 {
+    color: var(--navy);
+    font-size: 9.5pt;
+    margin: 0;
+  }
+
+  p {
+    margin: 4px 0 7px;
+  }
+
+  .profile {
+    font-size: 9.2pt;
+    line-height: 1.5;
+  }
+
+  .strengths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 16px;
+  }
+
+  .strength {
+    font-size: 8.5pt;
+  }
+
+  .strength strong {
+    color: var(--navy);
+  }
+
+  .job {
+    margin: 0 0 11px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .company {
+    color: var(--blue);
+    font-weight: 650;
+  }
+
+  .date {
+    color: var(--muted);
+    font-size: 8pt;
+    white-space: nowrap;
+  }
+
+  .role {
+    color: var(--muted);
+    font-size: 8.5pt;
+    margin: 1px 0 4px;
+  }
+
+  ul {
+    margin: 4px 0 0;
+    padding-left: 15px;
+  }
+
+  li {
+    margin: 0 0 3px;
+    padding-left: 1px;
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 4px 10px;
+    font-size: 8.5pt;
+  }
+
+  .skills strong {
+    color: var(--navy);
+  }
+
+  .project {
+    margin-bottom: 8px;
+  }
+
+  .education-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 5px;
+  }
+
+  .education-item strong {
+    color: var(--navy);
+  }
+
+  a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  .small {
+    color: var(--muted);
+    font-size: 8pt;
+  }
+
+  @media screen {
+    body {
+      background: #e9edf3;
+      padding: 24px;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 14mm 17mm;
+      margin: 0 auto 24px;
+      background: white;
+      box-shadow: 0 2px 12px #0002;
+    }
+  }
+
+  @media print {
+    .page {
+      min-height: 0;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+
+<section class="page">
+
+  <header>
+    <h1>Sean Lee</h1>
+    <div class="headline">Senior Software Engineer</div>
+    <div class="contact">
+      Sydney, Australia &nbsp; | &nbsp;
+      YOUR_EMAIL &nbsp; | &nbsp;
+      YOUR_PHONE &nbsp; | &nbsp;
+      <a href="YOUR_LINKEDIN_URL">LinkedIn</a> &nbsp; | &nbsp;
+      <a href="https://weilonge.github.io/resume/">Full Resume</a>
+    </div>
+  </header>
+
+  <h2>Professional Profile</h2>
+  <p class="profile">
+    Software Engineer with extensive experience designing and building
+    complex web applications, rendering systems and software platforms.
+    Combines strong architectural and implementation skills with
+    end-to-end engineering ownership, translating product requirements
+    into maintainable technical solutions and delivering them through
+    cross-functional collaboration.
+  </p>
+
+  <h2>Core Engineering Strengths</h2>
+  <div class="strengths">
+    <div class="strength">
+      <strong>Application Architecture</strong><br>
+      Designing maintainable and extensible application systems.
+    </div>
+    <div class="strength">
+      <strong>Rendering and Graphics</strong><br>
+      Building rendering systems and interactive visualisation experiences.
+    </div>
+    <div class="strength">
+      <strong>Platform Engineering</strong><br>
+      Developing shared infrastructure and abstractions for complex workflows.
+    </div>
+    <div class="strength">
+      <strong>Engineering Ownership</strong><br>
+      Driving projects from requirements and planning through release.
+    </div>
+    <div class="strength">
+      <strong>AI-assisted Development</strong><br>
+      Applying coding agents and structured workflows to engineering tasks.
+    </div>
+  </div>
+
+  <h2>Professional Experience</h2>
+
+  <article class="job">
+    <div class="job-header">
+      <h3>Canva <span class="company">| Software Engineer</span></h3>
+      <span class="date">Oct 2019 - Present</span>
+    </div>
+
+    <div class="role">Print Browse and Product Experiences</div>
+    <ul>
+      <li>
+        Architected and implemented the Print Shop Catalog and Product
+        pages, integrating them into Canva's existing Homepage architecture.
+      </li>
+      <li>
+        Owned project delivery end-to-end and drove technical alignment
+        across Print Browse, Print Group and Homepage.
+      </li>
+      <li>
+        Established a requirement-driven AI-assisted development workflow
+        to evaluate alternative solutions and reduce regressions.
+      </li>
+    </ul>
+  </article>
+
+  <article class="job">
+    <div class="role">Print Visualisation and Rendering</div>
+    <ul>
+      <li>
+        Refactored core rendering and rasterisation modules, improving
+        system architecture and maintainability.
+      </li>
+      <li>
+        Designed and led implementation of a 3D mockup viewer, delivering
+        interactive 3D product visualisation experiences.
+      </li>
+      <li>
+        Developed an Apple Vision Pro AR application for virtual poster
+        previews, winning first prize at the 2024 Print Group hackathon.
+      </li>
+    </ul>
+  </article>
+
+  <article class="job">
+    <div class="role">Offline Platform</div>
+    <ul>
+      <li>
+        Designed reusable offline architecture and developer-facing
+        infrastructure, including storage abstractions, routing and
+        asset-preloading APIs.
+      </li>
+      <li>
+        Led development of offline experiences and the storage layer,
+        integrating IndexedDB and Cache API with data isolation for
+        privacy requirements.
+      </li>
+    </ul>
+  </article>
+
+  <article class="job">
+    <div class="role">AI Orchestration and Desktop Application</div>
+    <ul>
+      <li>
+        Built an AI orchestration workflow coordinating multiple coding
+        agents concurrently on a Linux VM, using Git worktrees to isolate
+        development contexts.
+      </li>
+      <li>
+        Contributed to Canva's Electron desktop application, delivering
+        Eyedropper, offline image export and tab management features.
+      </li>
+    </ul>
+  </article>
+
+</section>
+
+<!-- PAGE 2 -->
+
+<section class="page">
+
+  <h2>Earlier Experience</h2>
+
+  <article class="job">
+    <div class="job-header">
+      <h3>Phase <span class="company">| Senior Software Engineer</span></h3>
+      <span class="date">Aug 2018 - Sep 2019</span>
+    </div>
+    <ul>
+      <li>
+        Designed the architecture for a web-based design editor,
+        separating business logic, UI components and rendering.
+      </li>
+      <li>
+        Developed interactive editor components and a Pixi/SVG rendering
+        engine, and explored WebGL rendering through a prototype.
+      </li>
+    </ul>
+  </article>
+
+  <article class="job">
+    <div class="job-header">
+      <h3>Mozilla <span class="company">| Senior Software Engineer</span></h3>
+      <span class="date">Oct 2014 - Jan 2018</span>
+    </div>
+    <ul>
+      <li>
+        Contributed to Firefox browser features including Form Autofill,
+        Password Manager and the Downloads panel.
+      </li>
+      <li>
+        Developed Firefox OS applications and platform features,
+        including Firefox Sync for TV, Settings navigation and BLE
+        drone control.
+      </li>
+    </ul>
+  </article>
+
+  <h2>Selected Technical Project</h2>
+
+  <div class="project">
+    <h3>WebGL Rendering Research Demo</h3>
+    <p>
+      Personal project exploring graphics rendering and WebGL architecture.
+      <a href="https://norahstudio.github.io/renderer/">
+        View project
+      </a>
+    </p>
+  </div>
+
+  <h2>Technical Skills</h2>
+
+  <div class="skills">
+    <strong>Languages</strong>
+    <span>TypeScript, JavaScript, C, C++, Java</span>
+
+    <strong>Frontend</strong>
+    <span>React, Redux, HTML, CSS</span>
+
+    <strong>Graphics</strong>
+    <span>WebGL, SVG, Pixi</span>
+
+    <strong>Platform</strong>
+    <span>Service Workers, IndexedDB, Electron, Linux</span>
+  </div>
+
+  <h2>Education</h2>
+
+  <div class="education-item">
+    <div>
+      <strong>MS, Computer Science</strong><br>
+      <span class="small">Chang Gung University</span>
+    </div>
+    <span class="date">2006 - 2009</span>
+  </div>
+
+  <div class="education-item">
+    <div>
+      <strong>BS, Computer Science</strong><br>
+      <span class="small">Chung Yuan Christian University</span>
+    </div>
+    <span class="date">2002 - 2006</span>
+  </div>
+
+</section>
+
+</body>
+</html>
